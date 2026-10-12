@@ -14,11 +14,11 @@ class Appwidgettest : HomeWidgetProvider() {
         context: Context,
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray,
-        widgetData: SharedPreferences
+        widgetData: SharedPreferences   /*<-- initial where you store the data */
     ) {
         // There may be multiple widgets active, so update all of them
         for (appWidgetId in appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId, widgetData)
+            updateAppWidget(context, appWidgetManager, appWidgetId, widgetData) /*<-- add the new commands */
         }
     }
 
@@ -37,7 +37,7 @@ internal fun updateAppWidget(
     appWidgetId: Int,
     widgetData: SharedPreferences
 ) {
-    // here we mention which is actucal show the UI data
+    // here we mention which is actucal show the UI data (mention the code...)
     val widgetText = widgetData.getString("widget_text", "Hello World")
     val views = RemoteViews(context.packageName, R.layout.appwidgettest)
     views.setTextViewText(R.id.appwidget_text, widgetText)
